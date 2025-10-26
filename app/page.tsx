@@ -1,65 +1,173 @@
-import Image from "next/image";
+// app/page.tsx
 
-export default function Home() {
+import Link from 'next/link';
+import Image from 'next/image'; // ¡Importación correcta para el componente!
+import { fetchAPI } from '../lib/api'; // Ruta correcta si lib/ está al mismo nivel que app/
+
+// --- Tipos de Datos para TypeScript ---
+type FeaturedImageNode = {
+  node: {
+    sourceUrl: string;
+    altText: string;
+  } | null; 
+} | null; 
+
+type Post = {
+  id: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  featuredImage: FeaturedImageNode; // Incluye la imagen destacada
+};
+
+type AllPostsData = {
+  posts: {
+    nodes: Post[];
+  };
+};
+
+// --- El Componente de la Página (Server Component) ---
+export default async function Home() {
+  
+  const query = `
+    query GetLatestPosts {
+      posts(first: 10) {
+        nodes {
+          id
+          title
+          excerpt
+          slug
+          featuredImage { 
+            node {
+              sourceUrl
+              altText
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  // Revalida el caché cada 60 segundos
+  const data: AllPostsData = await fetchAPI(query, { revalidate: 60 });
+  const posts = data.posts.nodes;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main style={{ padding: '2rem', maxWidth: '800px', margin: 'auto' }}>
+      <h1>Mis Posts desde WordPress</h1>
+      <hr />
+
+      {posts.map((post: Post) => (
+        <article key={post.id} style={{ marginBottom: '40px' }}>
+          
+          {/* Muestra la imagen destacada si existe */}
+          {post.featuredImage?.node?.sourceUrl && (
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src={post.featuredImage.node.sourceUrl.replace('http://', 'https://')} // 💡 Fuerza HTTPS por seguridad
+              alt={post.featuredImage.node.altText || post.title}
+              width={600} // Necesario para la optimización de Next/Image
+              height={300} // Necesario para la optimización de Next/Image
+              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          )}
+
+          <Link href={`/blog/${post.slug}`}>
+            <h2>{post.title}</h2>
+          </Link>
+          
+          <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          
+        </article>
+      ))}
+    </main>
   );
 }
+
+
+
+// // app/page.tsx
+
+// import Link from 'next/link';
+// import Image from 'next/image'; // ¡Importante para las imágenes!
+// import { fetchAPI } from '../lib/api'; 
+
+// // --- Tipos de Datos para TypeScript ---
+// type FeaturedImageNode = {
+//   node: {
+//     sourceUrl: string;
+//     altText: string;
+//   } | null; 
+// } | null; 
+
+// type Post = {
+//   id: string;
+//   title: string;
+//   excerpt: string;
+//   slug: string;
+//   featuredImage: FeaturedImageNode; // Incluye la imagen destacada
+// };
+
+// type AllPostsData = {
+//   posts: {
+//     nodes: Post[];
+//   };
+// };
+
+// // --- El Componente de la Página (Server Component) ---
+// export default async function Home() {
+  
+//   const query = `
+//     query GetLatestPosts {
+//       posts(first: 10) {
+//         nodes {
+//           id
+//           title
+//           excerpt
+//           slug
+//           featuredImage { 
+//             node {
+//               sourceUrl
+//               altText
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `;
+
+//   // Revalida el caché cada 60 segundos
+//   const data: AllPostsData = await fetchAPI(query, { revalidate: 60 });
+//   const posts = data.posts.nodes;
+
+//   return (
+//     <main style={{ padding: '2rem', maxWidth: '800px', margin: 'auto' }}>
+//       <h1>Mis Posts desde WordPress</h1>
+//       <hr />
+
+//       {posts.map((post: Post) => (
+//         <article key={post.id} style={{ marginBottom: '40px' }}>
+          
+//           {/* Muestra la imagen destacada si existe */}
+//           {post.featuredImage?.node?.sourceUrl && (
+//             <Image
+//               src={post.featuredImage.node.sourceUrl}
+//               alt={post.featuredImage.node.altText || post.title}
+//               width={600} 
+//               height={300}
+//               style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+//               priority
+//             />
+//           )}
+
+//           <Link href={`/blog/${post.slug}`}>
+//             <h2>{post.title}</h2>
+//           </Link>
+          
+//           <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          
+//         </article>
+//       ))}
+//     </main>
+//   );
+// }
