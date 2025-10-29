@@ -1,0 +1,6 @@
+// .vscode/settings.json
+{
+  // Forzar a la extensión a buscar la config.
+  "tailwindCSS.experimental.configFile": "./tailwind.config.ts" 
+}
+
