@@ -22,11 +22,19 @@
         "name": "next"
       }
     ],
+
+// 1. Define la base de las rutas como la raíz del proyecto
+    "baseUrl": ".",
+
+
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
+      
     }
+
+
+
+
   },
   "include": [
     "next-env.d.ts",
@@ -37,7 +45,7 @@
     "**/*.mts",
     ".next\\dev/types/**/*.ts",
     ".next\\dev/types/**/*.ts"
-  ],
+, "next.config.js"  ],
   "exclude": [
     "node_modules"
   ]

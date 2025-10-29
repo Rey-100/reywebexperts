@@ -8,6 +8,8 @@
 
 // next.config.js
 
+//C:\Users\usuario\Documents\GitHub\reywebexperts\next.config.ts
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Asegúrate de que esta estructura esté presente

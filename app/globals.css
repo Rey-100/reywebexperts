@@ -1,26 +1,113 @@
-@import "tailwindcss";
+/* src/app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ------------------------------------------- */
+/* 1. Definición de Variables CSS (Colores HSL) */
+/* ------------------------------------------- */
 
-@media (prefers-color-scheme: dark) {
+/* Las variables de HSL son las que tu tailwind.config.ts está usando para definir 'background', 'card', 'primary', etc. */
+/* Definición de variables para el tema oscuro (Dark Mode como base) */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 222.2 84% 4.9%;        /* Color de fondo principal (casi negro) */
+    --foreground: 210 20% 98%;          /* Color de texto principal (casi blanco) */
+
+    --card: 222.2 47.4% 11.2%;          /* Fondo de tarjetas (zinc-900) */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 142.1 76.2% 36.3%;       /* Color principal (usaremos un verde vibrante) */
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 217.2 32.6% 22.5%;        /* Bordes (zinc-800) */
+    --input: 217.2 32.6% 22.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem; /* radio por defecto */
+  }
+
+  /* Si deseas compatibilidad con Light Mode, puedes descomentar y ajustar esto:
+  .light {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+      ...
+  }
+  */
+}
+
+/* ----------------------------------- */
+/* 2. Estilos base y utilidades de capa */
+/* ----------------------------------- */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    /* Aplicamos el fondo y el color de texto HSL por defecto al body */
+    @apply bg-background text-foreground; 
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+/* ----------------------------------- */
+/* 3. CLASES PERSONALIZADAS (TU FIX)    */
+/* ----------------------------------- */
+
+/* Clase para el texto degradado Verde/Esmeralda */
+.text-gradient {
+  background: linear-gradient(to right, #4ade80, #10b981); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Clase para el texto degradado Azul/Cielo */
+.text-gradient-blue {
+  background: linear-gradient(to right, #60a5fa, #3b82f6); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Clase para el fondo degradado oscuro de la sección Hero */
+.bg-gradient-dark {
+  /* Fondo degradado oscuro para la sección Hero, para darle profundidad */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
+}
+
+/* ---------------------------------------------------- */
+/* 4. Estilos para el plugin de Tipografía (Prose)      */
+/* ---------------------------------------------------- */
+
+/* Dado que tu blog usa 'prose', necesitamos forzarlo a usar colores oscuros */
+@layer components {
+  .prose {
+    /* Define los colores para el contenido del blog en modo oscuro */
+    --tw-prose-body: theme(colors.gray.400); /* Color del texto de párrafos */
+    --tw-prose-headings: theme(colors.white); /* Color de h1, h2, h3 */
+    --tw-prose-links: theme(colors.green.400); /* Color de enlaces */
+    --tw-prose-bold: theme(colors.white); /* Color de texto en negrita */
+    --tw-prose-hr: theme(colors.zinc.700); /* Color de líneas horizontales */
+    /* Añade más overrides si es necesario para tablas, blockquotes, etc. */
+  }
 }
