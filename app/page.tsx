@@ -10,6 +10,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown, Check, Phone, Mail, MapPin, MessageCircle, Pause } from "lucide-react";
 
+import { ThreeDMarqueeDemo } from "../components/ThreeDMarqueeDemo";
+
 const Home = () => {
 
   const [currentService, setCurrentService] = useState(0);
@@ -160,7 +162,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+  <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 transform -skew-x-12"></div>
@@ -186,7 +188,45 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </header>
+      </header> 
+ 
+
+{/* Sección de presentación */}
+      <ThreeDMarqueeDemo />
+
+      {/* Resto de tu contenido o secciones */}
+
+
+
+{/* 
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+  <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="flex items-center gap-2">
+      <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 transform -skew-x-12"></div>
+      <span className="text-xl font-bold">vexus</span>
+    </div>
+
+    <nav className="hidden md:flex items-center gap-6 text-sm">
+      <a href="#servicios" className="hover:text-blue-400 transition">Servicios</a>
+      <a href="#nosotros" className="hover:text-blue-400 transition">Nosotros</a>
+      <a href="#precios" className="hover:text-blue-400 transition">Precios</a>
+      <a href="#faq" className="hover:text-blue-400 transition">FAQ</a>
+      <a href="#blog" className="hover:text-blue-400 transition">Blog</a>
+      <a href="#contacto" className="hover:text-blue-400 transition">Contacto</a>
+    </nav>
+
+    <div className="flex items-center gap-4">
+      <select className="bg-transparent border border-white/20 rounded px-2 py-1 text-sm">
+        <option value="mx">MX</option>
+        <option value="us">US</option>
+      </select>
+      <Button className="bg-transparent border border-white/40 hover:bg-white/10 rounded-full">
+        Cotizar ahora
+      </Button>
+    </div>
+  </div>
+</header> */}
+
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

@@ -1,14 +1,15 @@
 // app/blog/[slug]/page.tsx
 
-import { fetchAPI } from '../../../lib/api'; // ✅ USAMOS TRES NIVELES
+import { fetchAPI } from '@/lib/api'; 
 import Link from 'next/link';
-import Image from 'next/image'; // Importamos el componente Image
+import Image from 'next/image';
 
 // --- Tipos de Datos para TypeScript ---
 type PageProps = {
   params: Promise<{ slug: string }>; 
 };
 
+// 💡 NUEVO: Definimos el tipo para la imagen destacada
 type FeaturedImageNode = {
   node: {
     sourceUrl: string;
@@ -20,17 +21,15 @@ type PostData = {
   post: {
     title: string;
     content: string; 
-    featuredImage: FeaturedImageNode; // Incluimos la imagen
+    featuredImage: FeaturedImageNode; // 💡 NUEVO: Incluimos la imagen en el tipo
   };
 };
 
-// --- El Componente de la Página (Server Component) ---
 export default async function PostPage(props: PageProps) {
   
   const params = await props.params;
   const { slug } = params; 
 
-  // --- Hacemos la consulta de GraphQL (CON IMAGEN) ---
   const query = `
     query GetPostBySlug {
       post(id: "${slug}", idType: SLUG) {
@@ -54,34 +53,47 @@ export default async function PostPage(props: PageProps) {
       return <div>Post no encontrado (slug: {slug})</div>;
     }
     
-    // Obtenemos la URL de la imagen, asegurando HTTPS
     const imageUrl = post.featuredImage?.node?.sourceUrl?.replace('http://', 'https://');
 
     return (
-      <main style={{ padding: '2rem', maxWidth: '800px', margin: 'auto' }}>
-        <Link href="/">← Volver al inicio</Link>
-        <hr style={{ margin: '1rem 0' }} />
-        
-        <h1>{post.title}</h1>
+      // 💡 CAMBIO: Usamos clases de Tailwind
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-3xl mx-auto"> {/* Centramos el contenido del post */}
+          
+          <Link href="/blog" className="text-blue-600 hover:underline mb-4 inline-block">
+            ← Volver al blog
+          </Link>
+          
+          <h1 className="text-4xl lg:text-5xl font-extrabold mb-6">
+            {post.title}
+          </h1>
 
-        {/* Renderiza la imagen destacada */}
-        {imageUrl && (
-          <Image
-            src={imageUrl}
-            alt={post.featuredImage?.node?.altText || post.title}
-            width={800} 
-            height={400}
-            style={{ width: '100%', height: 'auto', objectFit: 'cover', marginBottom: '30px' }}
-            priority
+          {/* Renderiza la imagen destacada */}
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={post.featuredImage?.node?.altText || post.title}
+              width={800} 
+              height={400}
+              className="rounded-lg object-cover w-full h-auto mb-8 shadow-lg" // Clases de Tailwind
+              priority
+            />
+          )}
+          
+          {/* 💡 CAMBIO: Aquí usamos el plugin de tipografía 'prose' */}
+          <article 
+            className="prose prose-lg lg:prose-xl max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.content }} 
           />
-        )}
-        
-        <article dangerouslySetInnerHTML={{ __html: post.content }} />
+          {/* 'prose' aplica estilos a los <p>, <h2>, <ul>, etc.
+            'prose-lg' (o 'xl') ajusta el tamaño de fuente.
+            'max-w-none' elimina el límite de ancho de 'prose'.
+          */}
+        </div>
       </main>
     );
   } catch (error) {
-    // Si la API falla por sintaxis, devuelve un mensaje de error amigable
     console.error("Error al obtener el post:", error);
-    return <h1>Error al cargar el contenido del post.</h1>;
+    return <h1 className="text-center text-red-500 mt-10">Error al cargar el contenido del post.</h1>;
   }
 }

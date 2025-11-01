@@ -75,6 +75,13 @@
 /* ------------------------------------------- */
 /* 3. Clases personalizadas */
 /* ------------------------------------------- */
+/* 
+.text-gradient {
+  background: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
 
 .text-gradient {
   background: linear-gradient(to right, #4ade80, #10b981);
@@ -82,7 +89,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-}
+} 
 
 .text-gradient-blue {
   background: linear-gradient(to right, #60a5fa, #3b82f6);
