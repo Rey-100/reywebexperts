@@ -10,7 +10,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronDown, Check, Phone, Mail, MapPin, MessageCircle, Pause } from "lucide-react";
 
-import { ThreeDMarqueeDemo } from "../components/ThreeDMarqueeDemo";
+import { ThreeDMarqueeDemo } from "@/components/ThreeDMarqueeDemo";
 
 const Home = () => {
 

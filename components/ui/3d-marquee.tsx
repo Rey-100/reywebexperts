@@ -1,3 +1,17 @@
+//components\ui\3d-marquee.tsx
+
+
+// Si instalas motion (recomendado según tu import)
+//import { motion } from "motion/react";
+
+// Si instalas framer-motion en su lugar (cambia a esto)
+//import { motion } from "framer-motion";
+
+
+
+
+
+
 "use client";
 
 import { motion } from "motion/react";
