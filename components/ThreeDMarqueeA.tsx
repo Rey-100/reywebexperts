@@ -1,18 +1,4 @@
 //components\ThreeDMarqueeA.tsx
-/* 
-"use client";  export function ThreeDMarqueeDemoSecond() {
-
-import ThreeDMarquee from "@/components/ui/3d-marquee";
-
-export default function ThreeDMarqueeA() {
-  const images = [
-    "/images/1.png",
-    "/images/2.png",
-    "/images/3.png",
-    "/images/4.png",
-    "/images/5.png",
-  ]; */
-
 
 
 "use client";
@@ -20,7 +6,7 @@ export default function ThreeDMarqueeA() {
 
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
-export function ThreeDMarqueeA() {
+export default function ThreeDMarqueeA() {
   const images = [
     "https://assets.aceternity.com/cloudinary_bkp/3d-card.png",
     "https://assets.aceternity.com/animated-modal.png",

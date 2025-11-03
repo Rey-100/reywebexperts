@@ -13,7 +13,7 @@ import { ChevronDown, Check, Phone, Mail, MapPin, MessageCircle, Pause } from "l
 import { ThreeDMarqueeDemo } from "@/components/ThreeDMarqueeDemo";
 //import { ThreeDMarqueeDemoSecond } from "@/components/ThreeDMarqueeA";
 
-import ThreeDMarqueeA from "@/components/ThreeDMarqueeA";
+import ThreeDMarqueeA  from "@/components/ThreeDMarqueeA";
 
 const Home = () => {
 
