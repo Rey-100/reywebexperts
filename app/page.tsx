@@ -16,6 +16,11 @@ import ThreeDMarqueeA  from "@/components/ThreeDMarqueeA";
 import MarqueeShowcase from "@/components/MarqueeShowcase";
 
 
+
+console.log("DEBUG: MarqueeShowcase import:", typeof MarqueeShowcase, MarqueeShowcase);
+
+
+
 const Home = () => {
 
   const [currentService, setCurrentService] = useState(0);
