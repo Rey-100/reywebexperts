@@ -200,8 +200,12 @@ const Home = () => {
       </header> 
  
 
-{/* Sección de presentación */}
-      <ThreeDMarqueeDemo />
+{/* Sección de presentación 
+
+<ThreeDMarqueeDemo />
+
+*/}
+      
 
 
 
