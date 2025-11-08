@@ -83,6 +83,16 @@
 } */
 
 
+/* === Fuentes personalizadas === */
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+
 .text-gradient {
   background: linear-gradient(to right, #4ade80, #10b981);
   -webkit-background-clip: text;

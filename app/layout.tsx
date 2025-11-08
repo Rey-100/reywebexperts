@@ -1,9 +1,64 @@
+//app\layout.tsx
+
+import type { Metadata } from "next";
+import "./styles.css";
+import { Playfair_Display, Poppins } from "next/font/google";
+
+// Fuente principal para títulos elegantes
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+});
+
+// Fuente secundaria para texto limpio y moderno
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-poppins",
+});
+
+// Metadatos del sitio
+export const metadata: Metadata = {
+  title: "Vexus | Diseño web profesional y de alto rendimiento",
+  description:
+    "Creamos sitios web atractivos y personalizados que elevan tu marca y convierten visitantes en clientes leales.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="es">
+      <body
+        className={`${poppins.variable} ${playfair.variable} bg-black text-white antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
+/* 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import './styles.css';
-//import "./globals.css";
+import { Playfair_Display, Poppins } from "next/font/google";
 
-// ✅ Línea Nueva (Importar el archivo renombrado)
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 
 
 const geistSans = Geist({
@@ -36,3 +91,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
+ */
