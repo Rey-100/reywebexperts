@@ -58,9 +58,9 @@ export default function ThreeDMarqueeA() {
 
   
   return (
-    <div className="relative my-10 flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
       
-      {/* Título principal */}
+      {/* Título principal my-10 */}
       <h2 className="relative z-20 mx-auto max-w-5xl text-center text-3xl font-light tracking-wide text-white md:text-5xl lg:text-6xl leading-tight">
         <span className="bg-gradient-to-r from-gray-100 via-[#d4c6a8] to-gray-200 bg-clip-text text-transparent italic font-semibold">
           Diseño web profesional
