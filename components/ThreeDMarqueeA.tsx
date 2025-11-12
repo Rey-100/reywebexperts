@@ -43,57 +43,78 @@ export default function ThreeDMarqueeA() {
       "/images/32.webp",
       "/images/33.webp",
       "/images/34.webp",
-
-
-
-
-
-
-
    
   ];
 
-
-
-
   
   return (
-    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
+  <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
+    {/* Título principal */}
+
+
+
+    {/* <h2 className="font-[500] italic font-[var(--font-bodoni)] text-white text-5xl"></h2> */}
+
+
+
+    <h2
+      className="relative z-20 mx-auto max-w-5xl text-center text-3xl md:text-5xl lg:text-6xl leading-tight text-balance"
+    >
       
-      {/* Título principal my-10 */}
-      <h2 className="relative z-20 mx-auto max-w-5xl text-center text-3xl font-light tracking-wide text-white md:text-5xl lg:text-6xl leading-tight">
-        <span className="bg-gradient-to-r from-gray-100 via-[#d4c6a8] to-gray-200 bg-clip-text text-transparent italic font-semibold">
-          Diseño web profesional
-        </span>{" "}
+
+   {/*   <span  className="font-[500] italic font-[var(--font-bodoni)] text-white text-5xl">Diseño web profesional </span>{" "} */}
+      
+      
+      {/* <span className="font-playfair bg-gradient-to-r from-gray-100 via-[#d4c6a8] to-gray-200 bg-clip-text text-transparent italic font-semibold">
+        Diseño web profesional
+      </span>{" "} */} 
+
+
+  <span className="font-playfair text-white  text-[55px]">
+        Diseño web profesional
+      </span>{" "} 
+      
+      <span className="font-playfair text-white font-light text-[55px]">
         que inspira confianza y genera resultados.
-      </h2>
+      </span>
+    </h2>
 
-      {/* Subtítulo */}
-      <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-base text-gray-300 md:text-lg font-light">
-        Creamos sitios web atractivos y personalizados que elevan tu marca y convierten visitantes en clientes leales.
-      </p>
+    {/* Subtítulo  
+    
+    <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-[18px] md:text-lg text-white font-lato font-light leading-relaxed">
+    
+    
+    
+    
+    */}
+    <p className="relative z-20 mx-auto max-w-2xl py-8 text-center text-[18px] md:text-lg text-white font-lato ">
+      Creamos sitios web atractivos y personalizados que elevan tu marca y convierten visitantes en clientes leales.
+    </p>
 
-      {/* Botones */}
-      <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
-        <button className="rounded-md bg-[#c0b49f] px-6 py-2.5 text-sm font-medium text-black transition-colors hover:bg-[#b3a58b] focus:ring-2 focus:ring-[#c0b49f] focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
-          Solicita tu sitio web
-        </button>
-        <button className="rounded-md border border-white/20 bg-white/10 px-6 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
-          Ver proyectos
-        </button>
-      </div>
-
-      {/* Overlay oscuro */}
-      <div className="absolute inset-0 z-10 h-full w-full bg-black/60 dark:bg-black/40" />
-
-      {/* Fondo animado con imágenes */}
-      <ThreeDMarquee
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        images={images}
-      />
+    {/* Botones */}
+    <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
+      <button className="rounded-md bg-[#c0b49f] px-6 py-2.5 text-sm font-medium text-black font-poppins transition-all duration-300 hover:bg-[#b3a58b] focus:ring-2 focus:ring-[#c0b49f] focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
+        Solicita tu sitio web
+      </button>
+      <button className="rounded-md border border-white/20 bg-white/10 px-6 py-2.5 text-sm font-medium text-white font-poppins backdrop-blur-sm transition-all duration-300 hover:bg-white/20 focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
+        Ver proyectos
+      </button>
     </div>
-  );
+
+    {/* Overlay oscuro */}
+    <div className="absolute inset-0 z-10 h-full w-full bg-black/50 dark:bg-black/40" />
+
+    {/* Fondo animado con imágenes */}
+    <ThreeDMarquee
+      className="pointer-events-none absolute inset-0 h-full w-full"
+      images={images}
+    />
+  </div>
+);
 }
+
+
+
 //    return (
 //     <div className="relative my-10 flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
 //       {/* Título principal */}

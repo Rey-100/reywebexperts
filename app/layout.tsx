@@ -1,6 +1,70 @@
 //app\layout.tsx
 
+
+// app/layout.tsx
 import type { Metadata } from "next";
+import "./styles.css";
+import { Playfair_Display, Poppins } from "next/font/google";
+
+import { Bodoni_Moda } from "next/font/google";
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-bodoni",
+});
+
+
+
+
+
+// Fuente principal para títulos elegantes
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+// Fuente secundaria para texto limpio y moderno
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+// Metadatos del sitio
+export const metadata: Metadata = {
+  title: "Vexus | Diseño web profesional y de alto rendimiento",
+  description:
+    "Creamos sitios web atractivos y personalizados que elevan tu marca y convierten visitantes en clientes leales.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="es"
+      className={`${poppins.variable} ${playfair.variable} scroll-smooth`}
+    >
+      <body className="bg-black text-white antialiased selection:bg-white/10">
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
+
+
+
+/* import type { Metadata } from "next";
 import "./styles.css";
 import { Playfair_Display, Poppins } from "next/font/google";
 
@@ -41,7 +105,7 @@ export default function RootLayout({
     </html>
   );
 }
-
+ */
 
 /* 
 import type { Metadata } from "next";

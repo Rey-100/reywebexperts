@@ -81,6 +81,13 @@ export default {
                     '2xl': '1536px',
                 },
             },
+
+
+fontFamily: {
+      lato: ['orig_latoregular', 'sans-serif'],
+    },
+
+
         }
     },
     // 4. NECESARIO para el plugin tailwindcss-animate

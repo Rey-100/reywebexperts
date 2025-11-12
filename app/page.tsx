@@ -3,7 +3,9 @@
 //page,tsx
 
 "use client";
+import Image from 'next/image';
 
+import logo6 from "/public/images/RWE.png";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -170,21 +172,39 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header */}
-  <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm border-b border-white/10">
+      {/* Header 
+      
+      
+      
+      
+      */}
+  <header className="fixed top-0 left-0 right-0 z-50 "> 
+
+{/* <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm border-b border-white/10"> */}
+
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 transform -skew-x-12"></div>
-            <span className="text-xl font-bold">vexus</span>
+          
+          
+          <a href="/#inicio">
+       <Image
+                  className="-ml-8"
+                  src={logo6}
+                  width="150"
+                  height="150"
+                  alt="/"
+                />
+      </a>
+          
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#servicios" className="hover:text-green-400 transition">Servicios</a>
-            <a href="#nosotros" className="hover:text-green-400 transition">Nosotros</a>
-            <a href="#precios" className="hover:text-green-400 transition">Precios</a>
+            <a href="#servicios" className="hover:text-green-400 transition">SERVICIOS</a>
+            <a href="#nosotros" className="hover:text-green-400 transition">NOSOTROS</a>
+            <a href="#precios" className="hover:text-green-400 transition">PRECIOS</a>
             <a href="#faq" className="hover:text-green-400 transition">FAQ</a>
-            <a href="#blog" className="hover:text-green-400 transition">Blog</a>
-            <a href="#contacto" className="hover:text-green-400 transition">Contacto</a>
+            <a href="#blog" className="hover:text-green-400 transition">BLOG</a>
+            <a href="#contacto" className="hover:text-green-400 transition">CONTACTO</a>
           </nav>
 
           <div className="flex items-center gap-4">
