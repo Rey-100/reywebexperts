@@ -198,7 +198,7 @@ const Home = () => {
           
           </div>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm">
+          <nav className="hidden md:flex items-center gap-6 text-sm  font-semibold  font-lato">
             <a href="#servicios" className="hover:text-green-400 transition">SERVICIOS</a>
             <a href="#nosotros" className="hover:text-green-400 transition">NOSOTROS</a>
             <a href="#precios" className="hover:text-green-400 transition">PRECIOS</a>
