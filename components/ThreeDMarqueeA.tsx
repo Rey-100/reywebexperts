@@ -1,4 +1,4 @@
-//components\ThreeDMarqueeA.tsx
+
 // components/ThreeDMarqueeA.tsx
 "use client";
 
@@ -34,17 +34,17 @@ export default function ThreeDMarqueeA() {
       </motion.h2>
 
       {/* === Subtítulo === */}
-      <motion.p
+      <motion.span
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9 }}
         className="relative z-20 mx-auto max-w-2xl py-6 text-center text-white text-[16px] md:text-lg font-lato"
       >
         Creamos sitios web atractivos y personalizados que elevan tu marca y convierten visitantes en clientes leales.
-      </motion.p>
+      </motion.span>
 
       {/* === Botones === */}
-      <motion.div
+      <motion.span
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -57,7 +57,7 @@ export default function ThreeDMarqueeA() {
         <button className="rounded-md border border-white/20 bg-white/10 px-6 py-2.5 text-sm font-medium text-white font-poppins backdrop-blur-sm transition-all duration-300 hover:bg-white/20 focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">
           Ver proyectos
         </button>
-      </motion.div>
+      </motion.span>
 
       {/* === Overlay oscuro === */}
       <div className="absolute inset-0 z-10 h-full w-full bg-black/50 dark:bg-black/40" />
