@@ -1,5 +1,7 @@
 
 // components/ThreeDMarqueeA.tsx
+
+// components/ThreeDMarqueeA.tsx
 "use client";
 
 import { motion } from "motion/react";
@@ -15,23 +17,27 @@ export default function ThreeDMarqueeA() {
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
       
       {/* === HERO TITLE === */}
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-20 mx-auto max-w-5xl text-center text-balance leading-tight"
+        className="relative z-20 text-center leading-tight"
       >
-        {/* Línea 1 */}
-        <span className="font-playfair text-white block text-4xl md:text-6xl lg:text-[55px] font-bold">
+        {/* Línea fija 1 */}
+        <h2 className="font-playfair text-white block text-4xl md:text-6xl lg:text-[55px] font-bold">
           Diseño web profesional
-        </span>
+        </h2>
 
-        {/* Línea 2 con texto flip */}
-        <span className="font-playfair text-white block text-4xl md:text-6xl lg:text-[55px] font-light mt-2">
-          que inspira confianza y genera{" "}
-          <ContainerTextFlip words={flipWords} />
-        </span>
-      </motion.h2>
+        {/* Línea fija 2 */}
+        <h2 className="font-playfair text-white block text-4xl md:text-6xl lg:text-[55px] font-light mt-2">
+          que inspira confianza y genera
+        </h2>
+
+        {/* === FLIP WORD IN ITS OWN LINE (correcto para evitar romper el layout) === */}
+        <div className="mt-4 flex justify-center">
+          <ContainerTextFlip words={flipWords} className="text-[45px] md:text-[60px] text-white font-playfair" />
+        </div>
+      </motion.div>
 
       {/* === Subtítulo === */}
       <motion.span
