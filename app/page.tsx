@@ -16,6 +16,7 @@ import { ThreeDMarqueeDemo } from "@/components/ThreeDMarqueeDemo";
 import ThreeDMarqueeA  from "@/components/ThreeDMarqueeA";
 
 import MarqueeShowcase from "@/components/MarqueeShowcase";
+import { ContainerTextFlipDemo } from '@/components/rey2';
 
 
 
@@ -227,7 +228,7 @@ const Home = () => {
 */}
       
 
-
+<ContainerTextFlipDemo />
 
 <ThreeDMarqueeA />
 
@@ -274,10 +275,17 @@ const Home = () => {
       {/* Services Section */}
       <section id="servicios" className="py-20 bg-black">
         <div className="container mx-auto px-4">
+
+
+
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-green-500/20 text-green-400 border-green-500/40">
               SERVICIOS
             </Badge>
+
+            <ContainerTextFlipDemo />
+
+
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Servicios <span className="text-gradient">Web y Software</span> en México<br />
               con Resultados Comprobados
