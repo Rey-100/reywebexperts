@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { ChevronDown, Check, Phone, Mail, MapPin, MessageCircle, Pause } from "lucide-react";
 
 import { ThreeDMarqueeDemo } from "@/components/ThreeDMarqueeDemo";
-import ThreeDMarqueeA  from "@/components/ThreeDMarqueeA";
+import ThreeDMarqueeA from "@/components/ThreeDMarqueeA";
 
 import MarqueeShowcase from "@/components/MarqueeShowcase";
 import { ContainerTextFlipDemo } from '@/components/rey2';
@@ -179,24 +179,24 @@ const Home = () => {
       
       
       */}
-  <header className="fixed top-0 left-0 right-0 z-50 "> 
+      <header className="fixed top-0 left-0 right-0 z-50 ">
 
-{/* <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm border-b border-white/10"> */}
+        {/* <header className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm border-b border-white/10"> */}
 
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-          
-          
-          <a href="/#inicio">
-       <Image
-                  className="-ml-8"
-                  src={logo6}
-                  width="150"
-                  height="150"
-                  alt="/"
-                />
-      </a>
-          
+
+
+            <a href="/#inicio">
+              <Image
+                className="-ml-8"
+                src={logo6}
+                width="150"
+                height="150"
+                alt="/"
+              />
+            </a>
+
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm  font-semibold  font-lato">
@@ -218,22 +218,22 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </header> 
- 
+      </header>
 
 
-      
 
-<ContainerTextFlipDemo />
 
-<ThreeDMarqueeA />
 
-<main className="flex flex-col items-center justify-center min-h-screen bg-zinc-950 text-white">
-      <h1 className="text-4xl font-bold mb-12 text-center">
-        Nuestros Proyectos Destacados
-      </h1>
-      <MarqueeShowcase />
-    </main>
+
+
+      <ThreeDMarqueeA />
+
+      <main className="flex flex-col items-center justify-center min-h-screen bg-zinc-950 text-white">
+        <h1 className="text-4xl font-bold mb-12 text-center">
+          Nuestros Proyectos Destacados
+        </h1>
+        <MarqueeShowcase />
+      </main>
 
 
 
