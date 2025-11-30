@@ -221,11 +221,7 @@ const Home = () => {
       </header> 
  
 
-{/* Sección de presentación bg-black/80
 
-<ThreeDMarqueeDemo />
-
-*/}
       
 
 <ContainerTextFlipDemo />
