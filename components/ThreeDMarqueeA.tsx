@@ -18,6 +18,11 @@ export default function ThreeDMarqueeA() {
 
   const flipWords = ["resultados", "ventas", "impacto", "crecimiento"];
 
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+</style>
+
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-3xl">
       
